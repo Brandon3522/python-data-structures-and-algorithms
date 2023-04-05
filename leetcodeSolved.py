@@ -177,7 +177,7 @@ def my_groupAnagrams(strs: list[str]):
 
 my_groupAnagrams_result = my_groupAnagrams(["", "b" ,""])
 print(f'My group anagrams: {my_groupAnagrams_result}')
-
+print('#######################################')
 
 # Binary search
 def my_binarySearch(nums, target):
@@ -201,3 +201,47 @@ def my_binarySearch(nums, target):
 
 my_binarySearchResult = my_binarySearch([2, 5], 5)
 print(f'My binary search: {my_binarySearchResult}')
+print('#######################################')
+
+# 155: Min Stack
+class MinStack:
+    def __init__(self):
+        self.stack = []
+        self.minStack = []
+
+    def push(self, val: int):
+        self.stack.append(val)
+        if self.minStack:
+            self.minStack.append(min(val, self.minStack[-1]))
+        else:
+            self.minStack.append(val)
+
+    def pop(self):
+        if self.stack:
+            self.stack.pop()
+        if self.minStack:
+            self.minStack.pop()
+
+    def top(self) -> int:
+        if self.stack:
+            return self.stack[-1]
+
+    def getMin(self) -> int:
+        if self.minStack:
+            return self.minStack[-1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

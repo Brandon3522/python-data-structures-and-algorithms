@@ -270,6 +270,7 @@ def my_groupAnagrams(strs: list[str]):
 
 my_groupAnagrams_result = my_groupAnagrams(["",""])
 print(f'My group anagrams: {my_groupAnagrams_result}')
+print('#######################################')
 
 # Reverse a string
 def reverseString(string):
@@ -283,6 +284,7 @@ def reverseString(string):
 
 reverseStringResult = reverseString('reverse')
 print(f'Reverse string {reverseStringResult}')
+print('#######################################')
 
 # Fizz buzz
 def my_fizzBuzz(n):
@@ -295,3 +297,79 @@ def my_fizzBuzz(n):
             print(f'{num}: Buzz')
 
 my_fizzBuzz(100)
+print('#######################################')
+
+# 155: Min Stack
+class MinStack:
+
+    def __init__(self):
+        self.stack = []
+        self.minStack = []
+
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+        if self.minStack:
+            self.minStack.append(min(val, self.minStack[-1]))
+        else:
+            self.minStack.append(val)
+
+
+    def pop(self) -> None:
+        if self.stack:
+            self.stack.pop()
+        if self.minStack:
+            self.minStack.pop()
+
+    def top(self) -> int:
+        if self.stack:
+            return self.stack[-1]
+        if self.minStack:
+            return self.minStack[-1]
+
+    def getMin(self) -> int:
+        if self.minStack:
+            return self.minStack[-1]
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
+print('#######################################')
+
+# 704: Binary search
+def myBinarySearch(nums: list[int], target: int) -> int:
+    start = 0
+    end = len(nums) - 1
+
+    while start <= end:
+        midpoint = (start + end) // 2
+        if target == nums[midpoint]:
+            return midpoint
+        if target < nums[midpoint]:
+            end = midpoint - 1
+        if target > nums[midpoint]:
+            start = midpoint + 1
+    return -1
+
+myBinarySearchResult = myBinarySearch([-1,0,3,5,9,12], 2)
+print(f'My binary search result: {myBinarySearchResult}')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
