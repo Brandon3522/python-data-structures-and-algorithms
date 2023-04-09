@@ -230,6 +230,31 @@ class MinStack:
         if self.minStack:
             return self.minStack[-1]
 
+# Two Sum: 2 pointers approach
+# The list must be sorted !!!!!!!!
+def two_sum_2pointer(numbers: list, target: int):
+    first = 0
+    last = len(numbers) - 1
+    result = []
+    sum = 0
+
+    while first < last:
+        sum = numbers[first] + numbers[last]
+        if target == sum:
+            result.append(first + 1)
+            result.append(last + 1)
+            return result
+
+        if sum < target:
+            first += 1
+        elif sum > target:
+            last -= 1
+
+two_sum_2pointer_result = two_sum_2pointer([-1,0], -1)
+print(f'Two sum 2 pointer: {two_sum_2pointer_result}')
+print('#######################################')
+
+
 
 
 
