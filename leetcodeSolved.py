@@ -255,6 +255,36 @@ print(f'Two sum 2 pointer: {two_sum_2pointer_result}')
 print('#######################################')
 
 
+# 125: Valid Palindrome
+# Remove spaces, remove non alpha or numeric chars
+# Compare to reverse
+def isPalindrome(s: str) -> bool:
+    sNoSpaces = []
+    reverse = ''
+    for char in s:
+        if char != ' ':
+            sNoSpaces.append(char)
+
+    if len(sNoSpaces) == 0:
+        return True
+
+    sNoSpaces = ''.join(sNoSpaces)
+
+    newString = ''.join(char for char in sNoSpaces if char.isalpha() or char.isnumeric())
+    newString = newString.lower()
+
+    reverse = newString[::-1]
+
+    if reverse == newString:
+        return True
+    else:
+        return False
+
+
+isPalindromeresult = isPalindrome("0p")
+print(f'Valid palindrome: {isPalindromeresult}')
+
+
 
 
 
