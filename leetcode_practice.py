@@ -430,6 +430,95 @@ def isPalindrome(s: str) -> bool:
 
 isPalindromeresult = isPalindrome("0p")
 print(f'Valid palindrome: {isPalindromeresult}')
+print('#######################################')
+
+# 49: Group anagrams
+def groupAnagrams(strs: list[str]) -> list[list[str]]:
+    result = {}
+
+    for string in strs:
+        sorted_string = ''.join(sorted(string))
+
+        if sorted_string in result:
+            result[sorted_string].append(string)
+        else:
+            result[sorted_string] = [string]
+
+    return list(result.values())
+
+
+groupAnagrams_result = groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+print(f'Group anagrams {groupAnagrams_result}')
+print('#######################################')
+
+# Definition for singly-linked list.
+def reverseList1(head: [ListNode]) -> [ListNode]:
+    prev = None
+    current = head
+
+    if current is None:
+        return head
+
+    # Reversing each link
+    while current is not None:
+        nxt = current.next
+        current.next = prev
+        prev = current
+        current = nxt
+    # Return prev as new head
+    return prev
+print('#######################################')
+
+
+
+
+
+
+
+
+# Group anagrams practice
+def groupAnagrams01(strs: list[str]):
+    result = {}
+
+    for string in strs:
+        # Sort string
+        sorted_string = ''.join(sorted(string))
+
+        # Check if in dictionary
+        if sorted_string in result:
+            # Add string to list values
+            result[sorted_string].append(string)
+        else:
+            # Add list with string to values
+            result[sorted_string] = [string]
+
+    # Convert values to list
+    return list(result.values())
+
+groupAnagrams01_result = groupAnagrams01(["eat","tea","tan","ate","nat","bat"])
+print(f'Group anagrams {groupAnagrams01_result}')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

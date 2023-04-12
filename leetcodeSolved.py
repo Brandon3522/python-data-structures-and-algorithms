@@ -180,6 +180,7 @@ print(f'My group anagrams: {my_groupAnagrams_result}')
 print('#######################################')
 
 # Binary search
+# O(logn)
 def my_binarySearch(nums, target):
     first = 0
     last = len(nums) - 1
@@ -231,6 +232,7 @@ class MinStack:
             return self.minStack[-1]
 
 # Two Sum: 2 pointers approach
+# O(n)
 # The list must be sorted !!!!!!!!
 def two_sum_2pointer(numbers: list, target: int):
     first = 0
@@ -256,6 +258,7 @@ print('#######################################')
 
 
 # 125: Valid Palindrome
+# O(n)
 # Remove spaces, remove non alpha or numeric chars
 # Compare to reverse
 def isPalindrome(s: str) -> bool:
@@ -283,7 +286,49 @@ def isPalindrome(s: str) -> bool:
 
 isPalindromeresult = isPalindrome("0p")
 print(f'Valid palindrome: {isPalindromeresult}')
+print('#######################################')
 
+# 206: Reverse linked list
+# O(n)
+def reverseList(self, head: [ListNode]) -> [ListNode]:
+    prev = None
+    nxt = None
+    current = head
+
+    while current:
+        # Save current.next
+        nxt = current.next
+        # Assign current.next to prev
+        current.next = prev
+        # Increment prev
+        prev = current
+        # Increment current with saved node
+        current = nxt
+
+    return prev
+
+# 49: Group anagrams
+# O(k * nlogn)
+def groupAnagrams(strs: list[str]):
+    result = {}
+
+    for string in strs:
+        # Sort string
+        sorted_string = ''.join(sorted(string))
+
+        # Check if in dictionary
+        if sorted_string in result:
+            # Add string to list values
+            result[sorted_string].append(string)
+        else:
+            # Add list with string to values
+            result[sorted_string] = [string]
+
+    # Convert values to list
+    return list(result.values())
+
+groupAnagrams_result = groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+print(f'Group anagrams {groupAnagrams_result}')
 
 
 

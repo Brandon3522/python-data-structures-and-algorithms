@@ -18,9 +18,10 @@ def random_num(start, end):
 
 
 def main():
-    random_numbers = random_num(0, 15)
-    random_numbers.sort()
-    print(f'Random Numbers: {random_numbers}')
+    for i in range(5):
+        random_numbers = random_num(0, 15)
+        random_numbers.sort()
+        print(f'Random Numbers: {random_numbers}')
 
 
 if __name__ == '__main__':
