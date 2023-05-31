@@ -469,13 +469,6 @@ def reverseList1(head: [ListNode]) -> [ListNode]:
     return prev
 print('#######################################')
 
-
-
-
-
-
-
-
 # Group anagrams practice
 def groupAnagrams01(strs: list[str]):
     result = {}
@@ -497,10 +490,55 @@ def groupAnagrams01(strs: list[str]):
 
 groupAnagrams01_result = groupAnagrams01(["eat","tea","tan","ate","nat","bat"])
 print(f'Group anagrams {groupAnagrams01_result}')
+print('#######################################')
 
+def compareTriplets(a, b):
+    result = []
+    alice_score = 0
+    bob_score = 0
+    idx = 0
 
+    while idx <= len(a) - 1:
+        if a[idx] > b[idx]:
+            alice_score += 1
+        elif a[idx] < b[idx]:
+            bob_score += 1
+        idx += 1
+    result.append(alice_score)
+    result.append(bob_score)
 
+    return result
 
+compareTriplets_result = compareTriplets([1, 2, 3], [3, 2, 1])
+print(f'Compare triplets: {compareTriplets_result}')
+print('#######################################')
+
+def plusMinus(arr):
+    numPos = 0
+    numNeg = 0
+    numZero = 0
+    posRatio = 0
+    negRatio = 0
+    zeroRatio = 0
+    arrLength = len(arr)
+
+    for n in arr:
+        if n > 0:
+            numPos += 1
+        elif n == 0:
+            numZero += 1
+        elif n < 0:
+            numNeg += 1
+
+    posRatio = numPos / arrLength
+    negRatio = numNeg / arrLength
+    zeroRatio = numZero / arrLength
+
+    print(f'{posRatio:.6f}')
+    print(f'{negRatio:.6f}')
+    print(f'{zeroRatio:.6f}')
+
+print(f'Plus minus: {plusMinus([-4, 3, -9, 0, 4, 1])}')
 
 
 

@@ -76,4 +76,14 @@ for i in range(10):
     squares1.append(i * i)
 print(f'Squares 1: {squares1}')
 
+# Compute factorial
+def my_factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * my_factorial(n - 1)
+
+my_factorialResult = my_factorial(25)
+print(f'My factorial: {my_factorialResult}')
+
 
