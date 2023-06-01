@@ -539,18 +539,112 @@ def plusMinus(arr):
     print(f'{zeroRatio:.6f}')
 
 print(f'Plus minus: {plusMinus([-4, 3, -9, 0, 4, 1])}')
+print('#######################################')
 
+# Binary search practice
+def binarySearch01(nums: list, target: int):
+    first = 0
+    last = len(nums) - 1
 
+    while first <= last:
+        midpoint = (first + last) // 2
+        if target == nums[midpoint]:
+            return midpoint
+        elif target > nums[midpoint]:
+            first = midpoint + 1
+        elif target < nums[midpoint]:
+            last = midpoint - 1
+    return -1
 
+binarySearch01_result = binarySearch01([-1, 0, 3, 5, 9, 12], 9)
+print(f'Binary search 01: {binarySearch01_result}')
+print('#######################################')
 
+# 74: Search a 2D matrix
+def searchMatrix(matrix: list[list[int]], target: int) -> bool:
+    ROW = len(matrix)
+    COL = len(matrix[0])
 
+    # Run binary search on each array
+    top = 0
+    bottom = ROW - 1
+    while top <= bottom:
+        mid = (top + bottom) // 2
+        value = matrix[mid][COL - 1]
+        if target > matrix[mid][COL - 1]:
+            top = mid + 1
+        elif target < matrix[mid][0]:
+            bottom = mid - 1
+        else:
+            break
+    # If conditions are not met within the while loop
+    if not (top <= bottom):
+        return False
 
+    # Run binary search on the current row
+    mid_row = (top + bottom) // 2
+    left = 0
+    right = COL - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if target == matrix[mid_row][mid]:
+            return True
+        elif target < matrix[mid_row][mid]:
+            right = mid - 1
+        elif target > matrix[mid_row][mid]:
+            left = mid + 1
 
+    # If no conditions are met in the second while loop then return false
+    return False
 
+searchMatrix_result = searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)
+print(f'Search matrix: {searchMatrix_result}')
+print('#######################################')
 
+array01 = [[1,3,5,7],[10,11,16,20],[23,30,34,60]]
+print(f'Array: {array01[0][1]}')
+print(f'Array: {len(array01)}')
+print(f'Array: {len(array01[0])}')
+print('#######################################')
 
+# Binary matrix search practice
+def mySearchMatrix(matrix: list[list[int]], target: int) -> bool:
+    # Define ROWS and COLS
+    ROWS = len(matrix)
+    COLS = len(matrix[0])
 
+    # Binary search on each array within matrix
+    top = 0
+    bottom = ROWS - 1
+    while top <= bottom:
+        mid_row = (top + bottom) // 2
+        if target > matrix[mid_row][COLS - 1]:
+            top = mid_row + 1
+        elif target < matrix[mid_row][0]:
+            bottom = mid_row - 1
+        else:
+            break
 
+    if not (top <= bottom):
+        return False
+
+    # Binary search on given row
+    row = (top + bottom) // 2
+    left = 0
+    right = COLS - 1
+    while left <= right:
+        mid_index = (left + right) // 2
+        if target == matrix[row][mid_index]:
+            return True
+        elif target < matrix[row][mid_index]:
+            right = mid_index - 1
+        elif target > matrix[row][mid_index]:
+            left = mid_index + 1
+
+    return False
+
+mySearchMatrix_result = mySearchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)
+print(f'My search matrix {mySearchMatrix_result}')
 
 
 
