@@ -331,6 +331,7 @@ groupAnagrams_result = groupAnagrams(["eat","tea","tan","ate","nat","bat"])
 print(f'Group anagrams {groupAnagrams_result}')
 
 # 74: Search a 2D matrix
+# O(log m + log n)
 def searchMatrix(matrix: list[list[int]], target: int) -> bool:
     ROW = len(matrix)
     COL = len(matrix[0])
