@@ -1,4 +1,5 @@
 import collections
+import math
 
 
 # If n mod 3 and 5, add fizzbuzz into index n
@@ -526,6 +527,59 @@ def neetcode_groupAnagrams(strs: list[str]):
 neetcode_groupAnagrams_result = neetcode_groupAnagrams(["eat","tea","tan","ate","nat","bat"])
 print(f'Neetcode group anagrams: {neetcode_groupAnagrams_result}')
 print('#####################################')
+
+# 875: Koko Eating Bananas, brute force approach
+# O(m * k * n)
+def minEatingSpeed(piles: list[int], h: int) -> int:
+    max_value = max(piles)
+
+    if len(piles) == h:
+        return max_value
+
+    # Create list of numbers from 1 to hours
+    k_list = [num for num in range(1, max_value + 1)]
+    print(k_list)
+
+    # Find the minimum k
+    current_k = 0
+    total_hours = 0
+
+    while k_list[current_k] <= max_value:
+        for pile in piles:
+            total_hours += math.ceil(pile / k_list[current_k])
+            if total_hours > h:
+                break
+
+        if total_hours <= h:
+            return k_list[current_k]
+        total_hours = 0
+        current_k += 1
+
+
+minEatingSpeed_result = minEatingSpeed([3,6,7,11], 8)
+print(f'Min eating speed {minEatingSpeed_result}')
+print('#####################################')
+
+# 875: Koko Eating Bananas, binary search approach
+# O()
+def minEatingSpeed(piles: list[int], h: int) -> int:
+    pass
+
+print('#####################################')
+
+# Bubble sort -> O(n^2)
+def bubbleSort(arr: list):
+    for i in range(len(arr) - 1):
+        for j in range(len(arr) - 1 - i):
+            if arr[j] > arr[j + 1]:
+                temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+
+newList = [5, 1, 2, 10, 3, 4, 8]
+bubbleSort(newList)
+print(f'Bubble sort: {newList}')
+
 
 
 
