@@ -513,34 +513,6 @@ compareTriplets_result = compareTriplets([1, 2, 3], [3, 2, 1])
 print(f'Compare triplets: {compareTriplets_result}')
 print('#######################################')
 
-def plusMinus(arr):
-    numPos = 0
-    numNeg = 0
-    numZero = 0
-    posRatio = 0
-    negRatio = 0
-    zeroRatio = 0
-    arrLength = len(arr)
-
-    for n in arr:
-        if n > 0:
-            numPos += 1
-        elif n == 0:
-            numZero += 1
-        elif n < 0:
-            numNeg += 1
-
-    posRatio = numPos / arrLength
-    negRatio = numNeg / arrLength
-    zeroRatio = numZero / arrLength
-
-    print(f'{posRatio:.6f}')
-    print(f'{negRatio:.6f}')
-    print(f'{zeroRatio:.6f}')
-
-print(f'Plus minus: {plusMinus([-4, 3, -9, 0, 4, 1])}')
-print('#######################################')
-
 # Binary search practice
 def binarySearch01(nums: list, target: int):
     first = 0
@@ -647,35 +619,7 @@ mySearchMatrix_result = mySearchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 
 print(f'My search matrix {mySearchMatrix_result}')
 print('#######################################')
 
-# Hacker Rank: Lonely integer
-# O(n)
-def lonelyinteger(a):
-    # Write your code here
-    if len(a) == 1:
-        return a[0]
 
-    hash = {}
-
-    # add each value and count to hash
-    for i, val in enumerate(a):
-        if val in hash:
-            hash[val] = hash.get(val, 0) + 1
-            continue
-        hash[val] = 1
-
-
-    # return the key with the min value
-    minimum = 10000000000
-    min_key = 0
-    for key, value in hash.items():
-        if value < minimum:
-            minimum = value
-            min_key = key
-
-    return min_key
-
-print(lonelyinteger([1, 1, 2]))
-print('#######################################')
 
 
 
